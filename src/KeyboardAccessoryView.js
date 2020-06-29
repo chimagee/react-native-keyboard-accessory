@@ -84,8 +84,8 @@ class KeyboardAccessoryView extends Component {
     const keyboardHeight = Platform.select({
       ios: keyboardEvent.endCoordinates.height,
       android: this.props.androidAdjustResize
-        ? 0
-        : keyboardEvent.endCoordinates.height
+          ? 0
+          : keyboardEvent.endCoordinates.height+this.props.customHeight
     });
 
     const keyboardAnimate = () => {
@@ -188,6 +188,7 @@ KeyboardAccessoryView.propTypes = {
     PropTypes.object,
     PropTypes.func
   ]),
+  customHeight: PropTypes.number,
   bumperHeight: PropTypes.number,
   visibleOpacity: PropTypes.number,
   hiddenOpacity: PropTypes.number,
